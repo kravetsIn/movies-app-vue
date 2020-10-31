@@ -82,7 +82,14 @@ const moviesStore = {
           throw Error(response.Error);
         }
 
-        const movies = serializeResponse(response.Search);
+        const arrId = [];
+        response.Search.forEach(movie => {
+          arrId.push(movie.imdbID);
+        });
+        const requestsFull = arrId.map(id => axios.get(`/?i=${id}`));
+        const responseFull = await Promise.all(requestsFull);
+
+        const movies = serializeResponse(responseFull);
         commit(MOVIES, movies);
       } catch (err) {
         console.log(err.message);

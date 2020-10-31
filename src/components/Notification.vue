@@ -18,7 +18,9 @@ export default {
       this.$bvToast.toast(msg, {
         title,
         variant,
-        solid: true
+        solid: true,
+        toaster: "b-toaster-bottom-left",
+        appendToast: true
       });
     }
   }
