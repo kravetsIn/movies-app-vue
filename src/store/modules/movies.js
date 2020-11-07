@@ -56,7 +56,7 @@ const moviesStore = {
         const movies = serializeResponse(response);
         commit(MOVIES, movies);
       } catch (err) {
-        console.log(err);
+        console.log(err); //eslint-disable-line no-console
       } finally {
         dispatch("toggleLoader", false, { root: true });
       }
@@ -92,7 +92,7 @@ const moviesStore = {
         const movies = serializeResponse(responseFull);
         commit(MOVIES, movies);
       } catch (err) {
-        console.log(err.message);
+        console.log(err.message); //eslint-disable-line no-console
         dispatch(
           "showNotify",
           {
